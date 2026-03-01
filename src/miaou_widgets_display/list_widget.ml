@@ -2,6 +2,7 @@
 (*                                                                           *)
 (* SPDX-License-Identifier: MIT                                              *)
 (* Copyright (c) 2026 Nomadic Labs <contact@nomadic-labs.com>                *)
+(* Copyright (c) 2026 Mathias Bourgoin <mathias.bourgoin@atacama.tech>                 *)
 (*                                                                           *)
 (* *************************************************************************** *)
 
@@ -196,3 +197,5 @@ let handle_key t ~key =
         match parent_path with Some p -> {t with cursor = p} | None -> t)
   | "Enter" | " " -> toggle t
   | _ -> t
+
+let () = Miaou_registry.register ~name:"list" ~mli:[%blob "list_widget.mli"] ()
