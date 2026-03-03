@@ -1,6 +1,6 @@
-let run ?(enable_mouse = true) ?(handle_sigint = true) page =
+let run ?(enable_mouse = true) ?(handle_sigint = true) ?on_frame page =
   match Sys.getenv_opt "MIAOU_DRIVER" with
-  | Some "headless" -> Headless_json_runner.run page
+  | Some "headless" -> Headless_json_runner.run ?on_frame page
   | _ ->
       let term_backend =
         {
